@@ -23,6 +23,7 @@ export async function getServerSideProps(context) {
 export default function Place({ data }) {
     const { country, news } = data;
     const router = useRouter();
+    console.log(data.news);
 
     const handleGoBack = (e) => {
         e.preventDefault();

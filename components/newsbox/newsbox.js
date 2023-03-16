@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function NewsBox({ data }) {
     const { author, title, url, urlToImage, publishedAt, source: { name }  } = data;
     return (
-        <div className={styles.container} key={url}>
+        <div className={styles.container}>
             <Link href={url} className={styles.link}>
             <img src={urlToImage} alt={title} className={styles.image} />
             <div className={styles.info}>
