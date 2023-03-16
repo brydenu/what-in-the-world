@@ -1,3 +1,4 @@
+import Footer from "./footer/footer";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./landing.module.css";
@@ -21,6 +22,7 @@ export default function Landing() {
                     <button className={styles.searchbutton} type="submit">Search</button>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }
