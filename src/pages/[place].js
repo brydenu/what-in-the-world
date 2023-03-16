@@ -1,6 +1,7 @@
 import NewsBox from "components/newsbox/newsbox";
 import styles from "@/styles/place.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
     const { params } = context;
@@ -21,12 +22,18 @@ export async function getServerSideProps(context) {
 
 export default function Place({ data }) {
     const { country, news } = data;
-    console.log(country);
-    console.log(news);
+    const router = useRouter();
+
+    const handleGoBack = (e) => {
+        e.preventDefault();
+
+        router.push("/");
+    }
     return (
         <div className={styles.container}>
             <header className={styles.header}>
                 <div className={styles.head}>
+                    <button className={styles.backButton} type="button" onClick={handleGoBack}>Back</button>
                     <div className={styles.title}><h1 className={styles.name}>{ country.name }</h1></div>
                     <Image src={country.flag} width={150} height={100} alt={`Flag of ${country.name}`} className={styles.flag} />
                 </div>
@@ -40,7 +47,7 @@ export default function Place({ data }) {
             </header>
             <div className={styles.newsBoxes}>
                 {news.map((story) => (
-                    <NewsBox data={story} />
+                    <NewsBox data={story} key={story.url} />
                 ))}
             </div>
         </div>

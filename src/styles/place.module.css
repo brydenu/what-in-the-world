@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.link {
+    text-decoration: none;
+}
+
 .header {
     width: 100%;
     display: flex;
@@ -20,7 +24,19 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    padding: 1rem 0;
+    align-items: center;
+    padding: 1rem 5rem;
+    gap: 2rem;
+}
+
+.backButton {
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.backButton:hover {
+    cursor: pointer;
 }
 
 .title {
@@ -29,7 +45,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin: 0 5rem;
+    margin: 0;
 }
 
 .name {
@@ -46,4 +62,11 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
+}
+
+.newsBoxes {
+    margin: 2rem 3rem;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
 }
