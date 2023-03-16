@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
 export default function Place({ data }) {
     const { country, news } = data;
     const router = useRouter();
-    console.log(data.news);
+    console.log(data.country);
 
     const handleGoBack = (e) => {
         e.preventDefault();
@@ -40,10 +40,10 @@ export default function Place({ data }) {
                 </div>
                 <div className={styles.info}>
                     <div className={styles.population}><b>Population: </b>{ country.population }</div>
-                    <div><b>Language(s): </b>{ country.languages.map((l) => (<span>{l.name}</span>)) }</div>
+                    <div><b>Language(s): </b>{ country.languages.map((l) => (<span key={l.iso639_1}>{l.name}</span>)) }</div>
                     <div><b>Region: </b>{ country.region }</div>
                     <div><b>Capital: </b>{ country.capital }</div>
-                    <div><b>Currency/Currencies: </b>{ country.currencies.map((c) => (<span>{c.name} ({c.symbol})</span>)) }</div>
+                    <div><b>Currency/Currencies: </b>{ country.currencies.map((c) => (<span key={c.code}>{c.name} ({c.symbol})</span>)) }</div>
                 </div>
             </header>
             <div className={styles.newsBoxes}>
